@@ -16,8 +16,16 @@ internal fun Project.configureKotlinMultiplatform(
     sourceSets.apply {
         commonMain {
             dependencies {
+                implementation(project(":core:kotlin"))
                 implementation(libs.findLibrary("kotlinx.coroutines.core").get())
                 api(libs.findLibrary("koin.core").get())
+            }
+        }
+
+        commonTest {
+            dependencies {
+                implementation(kotlin("test"))
+                implementation(libs.findLibrary("kotlinx.coroutines.test").get())
             }
         }
     }

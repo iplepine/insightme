@@ -16,11 +16,6 @@ class KotlinMultiplatformConventionPlugin : Plugin<Project> {
             apply(libs.findPlugin("kotlinSerialization").get().get().pluginId)
         }
 
-        // Add dependency on core:kotlin project
-        dependencies.apply {
-            add("commonMainImplementation", project(":core:kotlin"))
-        }
-
         extensions.configure<KotlinMultiplatformExtension>(::configureKotlinMultiplatform)
     }
 }
